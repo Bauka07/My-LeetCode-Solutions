@@ -1,13 +1,13 @@
 package hindex
 
 import (
-	"fmt"
+	"slices"
 	"sort"
 )
 
 func hIndex(citations []int) int {
-	sort.Sort(sort.Reverse(sort.IntSlice(citations)))
-	fmt.Println(citations)
+	sort.Ints(citations)
+  slices.Reverse(citations)
 	count := 0
 	for i := 1; i <= len(citations);i++ {
 		if citations[i-1] >= i {
